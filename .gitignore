@@ -1,0 +1,4 @@
+target/
+out/
+.idea/
+source-generator-plugin-idea/source-generator-plugin-idea.zip
