@@ -35,8 +35,23 @@ Date = comparesEqualTo(expected)
 
 ## Usage
 1. Find a Java class with public fields in Project view.
+Example:
+```
+package com.company;
+
+import java.math.BigDecimal;
+import java.util.Date;
+
+public class Person {
+
+    public BigDecimal wealth;
+    public Date birthday;
+    public String name;
+
+}
+```
 2. Right click | Generate matcher for data class.
-3. Close the package and re-open to see the newly generated class in IDEA. For example for a UserData.java file UserDataMatcher.java will be generated.
+3. Close the package and re-open to see the newly generated class in IDEA. For example for a Person.java file PersonMatcher.java will be generated.
 4. Check and complete or fix the generated file.
 
 ## Limitations
