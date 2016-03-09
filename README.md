@@ -57,7 +57,7 @@ Date = comparesEqualTo(expected)
 - providing the expected object or
 
   ```Java
-        assertThat(actualPerson, isPerson(expectedPerson));
+  assertThat(actualPerson, isPerson(expectedPerson));
   ```
 - providing all attributes of the expected object or
 
@@ -77,6 +77,7 @@ Date = comparesEqualTo(expected)
 3. Close the package (folder) and re-open to see the newly generated class in IDEA. For example for a Person.java file PersonBuilder.java will be generated.
 4. Check and complete or fix the generated file.
 5. Use it, a builder can be created the following way:
+
   ```
   Person john = new PersonBuilder().withName("John").build();
   ```
