@@ -35,37 +35,40 @@ Date = comparesEqualTo(expected)
 
 ## Generate matcher
 1. Find a Java class with public fields in Project view. Example:
-```Java
-package com.company;
 
-import java.math.BigDecimal;
-import java.util.Date;
+ ```Java
+ package com.company;
 
-public class Person {
+ import java.math.BigDecimal;
+ import java.util.Date;
 
-    public BigDecimal wealth;
-    public Date birthday;
-    public String name;
+ public class Person {
 
-}
+     public BigDecimal wealth;
+     public Date birthday;
+     public String name;
+
+ }
 ```
 2. Right click | Generate matcher for data class.
 3. Close the package (folder) and re-open to see the newly generated class in IDEA. For example for a Person.java file PersonMatcher.java will be generated.
 4. Check and complete or fix the generated file.
 5. Use it, a matcher can be created by
 - providing the expected object or
-```Java
-assertThat(actualPerson, isPerson(expectedPerson));
-```
-- providing all attributes of the expected object or
-```Java
-assertThat(actualPerson, isPerson(wealth, birthday, name));
-```
-- starting from an empty (all matching) builder, and specifying some parameters.
-```Java
-assertThat(actualPerson, isPerson().withName("John"));
 
-```
+  ```Java
+        assertThat(actualPerson, isPerson(expectedPerson));
+  ```
+- providing all attributes of the expected object or
+
+  ```Java
+  assertThat(actualPerson, isPerson(wealth, birthday, name));
+  ```
+- starting from an empty (all matching) builder, and specifying some parameters.
+
+  ```Java
+  assertThat(actualPerson, isPerson().withName("John"));
+  ```
 
 ## Generate builder
 
@@ -74,13 +77,13 @@ assertThat(actualPerson, isPerson().withName("John"));
 3. Close the package (folder) and re-open to see the newly generated class in IDEA. For example for a Person.java file PersonBuilder.java will be generated.
 4. Check and complete or fix the generated file.
 5. Use it, a builder can be created the following way:
-```
-Person john = new PersonBuilder().withName("John").build();
-```
+  ```
+  Person john = new PersonBuilder().withName("John").build();
+  ```
 
 # Limitations
 - Currently getters and setters are not supported, data fields must be public.
 - Primitive types are not supported. (The code will be generated, but will contain compile errors, manual fix is required.)
-- Matchers from the _Matchers_ class is supported by default. Other code will be generated, but the imports must be corrected manually.
+- Hamcrest matchers from the _Matchers_ class is supported by default. Other code will be generated as described in `customMatchers.properties`, but imports must be corrected manually.
 
 WARNING: the code is in alpha status, use with caution! It may eat your source files.
